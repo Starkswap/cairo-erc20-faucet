@@ -1,0 +1,8 @@
+#Python
+env
+venv
+__pycache__
+
+
+#output directory
+artifacts
