@@ -2,32 +2,22 @@
 
 
 # Development prerequisites
-This project uses python and gnu Make to build
 
-Set up a python environment with the relevant packages, i.e. `cairo-lang`
+Clone the [starknet cairo repository](https://github.com/starkware-libs/cairo) and build the `starknet-compile` tool
 ```
-python3 -m venv env
-source env/bin/activate
-pip3 install -r requirements.txt
+git clone git@github.com:starkware-libs/cairo.git
+cd cairo
+cargo build --bin starknet-compile
 ```
 
-Fetch the relevant dependencies (git submodules)
-```
-git submodule init
-git submodule update
-```
+Take a note of the directory as we'll need it later. 
+The binary should be found in `clone_dir/target/debug/starknet-compile`
 
 # Building the project
 
 To build the contracts run 
 ```
-make
-```
-
-To run the tests run
-
-```
-make test
+STARKNET_COMPILE=<path-to-binary> make
 ```
 
 To clean the artifacts run
